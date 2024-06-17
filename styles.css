@@ -1,0 +1,205 @@
+/* styles.css */
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+/* Navigation bar styles */
+nav {
+    position: sticky;
+    top: 0px;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #fafafa;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+    z-index: 1;
+    text-overflow: ellipsis;
+    height: 50px;
+    box-sizing: border-box;
+}
+
+#menuButton {
+    display: none; /* Default to hidden */
+}
+
+#verticalMenu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navMenuLinkContent {
+    padding: 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.navMenuLinkContent:hover {
+    color: #0056b3;
+}
+
+/* Dropdown menu styles */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #ffffff;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    min-width: 160px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    color: #343a40;
+}
+
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+    color: #0056b3;
+}
+
+.dropdown-menu, .dropdown-item {
+    transition: all 0.3s ease;
+}
+
+/* Header and footer styles */
+header, footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: #ffc107 !important;
+}
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Form styles */
+form {
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 500px;
+    background: #fff;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: auto;
+}
+
+form div {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #343a40;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Alert styles */
+.alert {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+/* Mobile specific styles */
+@media (max-width: 768px) {
+    #menuButton {
+        display: flex; /* Show menu button on mobile */
+    }
+
+    #verticalMenu {
+        display: none; /* Hide menu items on mobile */
+    }
+
+    #menuToggle:checked + #menuButton + #verticalMenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fafafa;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        z-index: 2;
+    }
+
+    .navMenuLinkContent {
+        padding: 10px;
+        text-align: center;
+    }
+}
+
+
+
