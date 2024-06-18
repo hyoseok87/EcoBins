@@ -1,7 +1,7 @@
 <!--db.php -->
 <?php
 $datenbank = "ecobins";
-$port = 3307;
+$port = 3306;
 $link = mysqli_connect("localhost", "root", "", $datenbank, $port);
 
 // Check connection
