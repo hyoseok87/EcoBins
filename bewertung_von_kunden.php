@@ -12,6 +12,7 @@
 </head>
 <body>
     <h1>Bewertung von Kunden</h1>
+    
     <?php include 'footer.php'; ?>
 </body>
 </html>

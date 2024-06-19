@@ -1,7 +1,7 @@
 <?php
 session_start();
 ?>
-<nav style="position:sticky;top:0px;font-family:sans-serif;display:flex;justify-content:space-between;align-items:center;background-color:#fafafa;border-bottom:1px solid rgba(0, 0, 0, 0.07);z-index:1;text-overflow:ellipsis;height:50px;box-sizing:border-box;padding:0 20px;">
+<nav>
     <div style="flex:1;">
         <a href="index.php" style="text-decoration:none;color:inherit;font-weight:bold;"></a>
     </div>

@@ -1,14 +1,70 @@
-/* 기본 스타일 */
+/* Grundstil */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f8f9fa;
     color: #343a40;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
+/* Layout */
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Textstil */
+.header {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.subheader {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+/* Schaltflächenstil */
+.cta-button {
+    background-color: #00c4cc;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.cta-button:hover {
+    background-color: #009ba3;
+}
+
+/* App-Links Stil */
+.app-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.app-links img {
+    height: 40px;
+    width: auto;
+}
+
+/* Navigationsleiste */
 nav {
     position: sticky;
     top: 0px;
-    font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -20,10 +76,12 @@ nav {
     box-sizing: border-box;
 }
 
+/* Menüschaltfläche */
 #menuButton {
-    display: none; /* Default to hidden */
+    display: none; /* Standardmäßig ausgeblendet */
 }
 
+/* Vertikales Menü */
 #verticalMenu {
     display: flex;
     list-style: none;
@@ -31,6 +89,7 @@ nav {
     padding: 0;
 }
 
+/* Navigationslinks */
 .navMenuLinkContent {
     padding: 15px;
     text-decoration: none;
@@ -46,38 +105,15 @@ nav {
     font-weight: bold;
 }
 
+/* Kopf- und Fußzeile */
 header, footer {
-    background-color: #f8f9fa ;
+    background-color: #f8f9fa;
     color: #343a40;
     padding: 20px 0;
     text-align: center;
 }
 
-.navbar {
-    margin-bottom: 20px;
-}
-
-.navbar-brand, .nav-link {
-    color: white !important;
-}
-
-.nav-link:hover {
-    color: #ffc107 !important;
-}
-
-main {
-    padding: 20px;
-}
-
-h2 {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-form {
-    margin-bottom: 20px;
-}
-
+/* Fußzeile */
 .footer {
     border-top: 1px solid #e1e1e1;
     padding-top: 10px;
@@ -114,34 +150,7 @@ form {
     float: right;
 }
 
-/* Mobile specific styles */
-@media (max-width: 768px) {
-    #menuButton {
-        display: flex; /* Show menu button on mobile */
-    }
-
-    #verticalMenu {
-        display: none; /* Hide menu items on mobile */
-    }
-
-    #menuToggle:checked + #menuButton + #verticalMenu {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        background-color: #fafafa;
-        position: absolute;
-        top: 50px;
-        left: 0;
-        z-index: 2;
-    }
-
-    .navMenuLinkContent {
-        padding: 10px;
-        text-align: center;
-    }
-}
-
-
+/* Schaltflächenstil */
 .delete-button {
     color: white !important;
     background-color: #721c24 !important;
@@ -177,11 +186,13 @@ form {
     cursor: pointer; 
 }
 
+/* Formularstil */
 .form-container {
     display: flex;
     justify-content: space-between;
 }
 
+/* Anmeldungsstil */
 .login-container {
     display: flex;
     justify-content: center;
@@ -216,6 +227,7 @@ p {
     margin-bottom: 20px;
 }
 
+/* Dokumentationsbox */
 .documentation-box {
     background-color: #ffffff;
     padding: 40px;
@@ -243,6 +255,7 @@ p {
     margin-top: 20px; 
 }
 
+/* Eingabegruppen */
 .input-group {
     margin-bottom: 20px;
     text-align: left;
@@ -322,4 +335,31 @@ ul li input {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+}
+
+/* Mobile spezifische Stile */
+@media (max-width: 768px) {
+    #menuButton {
+        display: flex; /* Menüschaltfläche auf Mobilgeräten anzeigen */
+    }
+
+    #verticalMenu {
+        display: none; /* Menüpunkte auf Mobilgeräten ausblenden */
+    }
+
+    #menuToggle:checked + #menuButton + #verticalMenu {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background-color: #fafafa;
+        position: absolute;
+        top: 50px;
+        left: 0;
+        z-index: 2;
+    }
+
+    .navMenuLinkContent {
+        padding: 10px;
+        text-align: center;
+    }
 }
