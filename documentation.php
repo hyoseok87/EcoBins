@@ -1,5 +1,4 @@
-
-
+<!-- documentation.php -->
 <?php
 include 'nav.php';
 include 'db.php';
@@ -89,9 +88,8 @@ if ($stmt = $link->prepare($sql)) {
                 </div>
                 <button type="submit" class="btn btn-primary hochladen-button">Hochladen</button>
             </form>
-
-
         </div>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

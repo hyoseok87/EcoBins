@@ -1,15 +1,16 @@
 <!--footer.php -->
 <div class="container">
-  <footer class="py-3 my-4">
-    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-      <li class="nav-item"><a href="index.php" class="nav-link px-2 text-body-secondary">Home</a></li>
-      <li class="nav-item"><a href="merkmale.php" class="nav-link px-2 text-body-secondary">Merkmale</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">Pricing</a></li>
-      <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">FAQs</a></li>
-      <li class="nav-item"><a href="mitarbeiter.php" class="nav-link px-2 text-body-secondary">Über uns</a></li>
-      <li class="nav-item"><a href="kontakt.php" class="nav-link px-2 text-body-secondary">Kontakt</a></li>
-    </ul>
-    <p class="text-center text-body-secondary">© 2024 Company, Inc</p>
+  <footer class="footer">
+        <div class="footer-content">
+            <ul class="nav justify-content-center">
+                <li class="nav-item"><a href="datenschutzrichtlinie.php" class="nav-link px-2 text-body-secondary">Datenschutzrichtlinie</a></li>
+                <li class="nav-item"><a href="cookies.php" class="nav-link px-2 text-body-secondary">Verwendung von Cookies</a></li>
+                <li class="nav-item"><a href="nutzungsbedingungen.php" class="nav-link px-2 text-body-secondary">Nutzungsbedingungen</a></li>
+                <li class="nav-item"><a href="rechtliche_hinweise.php" class="nav-link px-2 text-body-secondary">Rechtliche Hinweise</a></li>
+                <li class="nav-item"><a href="impressum.php" class="nav-link px-2 text-body-secondary">Impressum</a></li>
+                <li class="nav-item"><a href="agb.php" class="nav-link px-2 text-body-secondary">AGB</a></li>
+            </ul>
+            <p class="text-center text-body-secondary">© 2024 EcoBins LGmbH, Inc. Alle Rechte vorbehalten.</p>
+        </div>
   </footer>
 </div>
-

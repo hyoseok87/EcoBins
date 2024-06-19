@@ -1,3 +1,4 @@
+<!-- download.php -->
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['files']) && is_array($_POST['files'])) {

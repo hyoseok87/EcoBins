@@ -1,3 +1,4 @@
+<!-- register.php -->
 <?php
 include 'nav.php';
 include 'db.php';
@@ -77,5 +78,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </form>
         </div>
     </div>
+    <?php include 'footer.php'; ?>
 </body>
 </html>
