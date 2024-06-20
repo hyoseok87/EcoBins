@@ -3,34 +3,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const slides = Array.from(track.children);
     const dotsNav = document.querySelector('.carousel-nav');
     const dots = Array.from(dotsNav.children);
+    const modal = document.getElementById('modal');
+    const modalName = document.getElementById('modal-name');
+    const modalDescription = document.getElementById('modal-description');
+    const closeModalButton = document.querySelector('.close');
 
     let slideWidth = slides[0].getBoundingClientRect().width;
     let currentIndex = 0;
-
-    // 슬라이드 복제하여 무한 루프 구현
-    const firstSlide = slides[0].cloneNode(true);
-    const lastSlide = slides[slides.length - 1].cloneNode(true);
-    track.appendChild(firstSlide);
-    track.insertBefore(lastSlide, slides[0]);
 
     const setSlidePosition = (slide, index) => {
         slide.style.left = slideWidth * index + 'px';
     };
 
-    const updateSlidePositions = () => {
-        const updatedSlides = Array.from(track.children);
-        updatedSlides.forEach(setSlidePosition);
-    };
-
     slides.forEach(setSlidePosition);
-    updateSlidePositions();
 
-    const moveToSlide = (track, currentSlide, targetSlide, instant = false) => {
-        if (instant) {
-            track.style.transition = 'none';
-        } else {
-            track.style.transition = 'transform 0.5s ease-in-out';
-        }
+    const moveToSlide = (track, currentSlide, targetSlide) => {
+        track.style.transition = 'transform 0.5s ease-in-out';
         track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
         currentSlide.classList.remove('active');
         targetSlide.classList.add('active');
@@ -72,30 +60,50 @@ document.addEventListener('DOMContentLoaded', () => {
         const currentSlide = track.querySelector('.active');
         const currentDot = dotsNav.querySelector('.active');
         let targetIndex = (currentIndex + 1) % slides.length;
-        const targetSlide = track.children[targetIndex];
-        const targetDot = dots[targetIndex % dots.length];
+        const targetSlide = slides[targetIndex];
+        const targetDot = dots[targetIndex];
 
         moveToSlide(track, currentSlide, targetSlide);
+        updateDots(currentDot, targetDot);
+        blurSlides(targetSlide);
 
-        if (targetIndex === slides.length) {
-            setTimeout(() => {
-                track.style.transition = 'none';
-                track.style.transform = 'translateX(-' + slides[0].style.left + ')';
-                currentSlide.classList.remove('active');
-                slides[0].classList.add('active');
-                currentIndex = 0;
-            }, 500);
-        } else {
-            updateDots(currentDot, targetDot);
-            blurSlides(targetSlide);
-            currentIndex = targetIndex;
-        }
+        currentIndex = targetIndex;
     };
 
-    setInterval(moveToNextSlide, 3000); // 3초마다 자동 슬라이드
+    setInterval(moveToNextSlide, 3000); // 3 Sekunden für automatische Slide
 
-    window.addEventListener('resize', () => {
-        slideWidth = slides[0].getBoundingClientRect().width;
-        updateSlidePositions();
-    });
+    const openModal = (name, description) => {
+        modalName.innerText = name;
+        modalDescription.innerText = description;
+        modal.style.display = 'block';
+    };
+
+    const closeModal = () => {
+        modal.style.display = 'none';
+    };
+
+    // JSON 파일을 불러와서 설명 데이터를 설정
+    fetch('descriptions.json')
+        .then(response => response.json())
+        .then(descriptions => {
+            slides.forEach(slide => {
+                const button = slide.querySelector('.kontakt-button');
+                if (button) {
+                    button.addEventListener('click', () => {
+                        const id = button.getAttribute('data-id');
+                        const name = descriptions[id].name;
+                        const description = descriptions[id].description;
+                        openModal(name, description);
+                    });
+                }
+            });
+        });
+
+    closeModalButton.addEventListener('click', closeModal);
+
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
 });

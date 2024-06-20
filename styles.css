@@ -193,7 +193,6 @@ header, footer {
 }
 
 /* Anmeldungsstil */
-
 .login-container {
     display: flex;
     text-align: center;
@@ -247,7 +246,6 @@ p {
     flex-grow: 1;
     margin-top: 40px; 
 }
-
 
 .documentation-box h2:first-of-type {
     margin-top: 0; 
@@ -397,6 +395,7 @@ ul li input {
     justify-content: center;
     gap: 20px;
     padding-top: 40px;
+    flex-wrap: wrap; /* 모바일 화면에서 감싸도록 설정 */
 }
 
 .feature {
@@ -406,6 +405,8 @@ ul li input {
     border-radius: 10px;
     max-width: 300px;
     text-align: left;
+    flex: 1 1 calc(33.333% - 40px); /* 요소가 감싸도록 설정 */
+    margin-bottom: 20px; /* 아래 여백 추가 */
 }
 
 .feature-icon {
@@ -452,7 +453,7 @@ ul li input {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* 모바일 화면에서 감싸도록 설정 */
 }
 
 .review-box {
@@ -463,9 +464,8 @@ ul li input {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 300px;
     text-align: left;
-    flex: 1 1 calc(33.333% - 40px);
-    box-sizing: border-box;
-    margin-top: 40px; 
+    flex: 1 1 calc(33.333% - 40px); /* 요소가 감싸도록 설정 */
+    margin-bottom: 20px; /* 아래 여백 추가 */
     display: flex;
     flex-direction: column;
     justify-content: space-between; 
@@ -498,8 +498,7 @@ blockquote footer {
     right: 20px; 
 }
 
-
-/* Carousel-Stil */
+/* Mitarbeiter */
 .carousel-container {
     position: relative;
     max-width: 100%;
@@ -519,6 +518,7 @@ blockquote footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column; /* 추가: 세로 정렬 */
 }
 
 .carousel-slide img {
@@ -529,8 +529,22 @@ blockquote footer {
     border-radius: 20px;
 }
 
-.carousel-slide.inactive {
-    filter: blur(10px);
+.carousel-caption {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.kontakt-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.kontakt-button:hover {
+    background-color: #0056b3;
 }
 
 .carousel-nav {
@@ -557,6 +571,47 @@ blockquote footer {
     background-color: #000;
 }
 
+/* Modal 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
 /* Kontakt */ 
 
 .contact-container {
@@ -564,10 +619,10 @@ blockquote footer {
     justify-content: center;
     align-items: center;
     width: 100%;
-
-    padding: 20px 0; /* 컨테이너에 패딩을 추가하여 상하 여백을 확보 */
-    flex-grow: 1; /* 남은 공간을 채우도록 설정 */
+    padding: 20px 0;
+    flex-grow: 1;
 }
+
 .contact-box {
     background-color: #1c2c4c;
     border-radius: 10px;
@@ -575,20 +630,20 @@ blockquote footer {
     text-align: center;
     width: 80%;
     max-width: 1500px;
-    height: 60vh; /* 전체 높이의 90%를 차지하도록 설정 */
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* 요소 사이에 균등한 간격을 둠 */
+    justify-content: space-between;
+    overflow: hidden; /* 추가: 콘텐츠가 벗어나지 않도록 */
 }
 
 .contact-box h1 {
     color: #00c8ff;
     background-color: #1c2c4c;
-    padding: 20px;
+    padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
-    font-size: 50px;
+    font-size: 4vw;
 }
 
 .contact-item {
@@ -597,33 +652,34 @@ blockquote footer {
     margin: 10px 0;
     border-radius: 5px;
     border: 2px solid #1c2c4c;
-    flex-grow: 1; /* 남는 공간을 차지하도록 설정 */
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 텍스트가 박스 내에서 중앙에 위치하도록 설정 */
+    justify-content: center;
 }
 
 .contact-item h2 {
     color: #1c2c4c;
     margin: 0;
-    font-size: 35px;
+    font-size: 2.5vw;
 }
 
 .contact-item p {
     color: #1c2c4c;
     margin: 5px 0 0;
-    font-size: 25px;
+    font-size: 2vw;
 }
 
 .social-media {
-    background-color: #00c8ff;
+    background-color: #00c8ff; /* 수정: 배경색을 어두운 파랑으로 */
     padding: 10px;
     border-radius: 5px;
-    flex-grow: 1; /* 남는 공간을 차지하도록 설정 */
     display: flex;
     flex-direction: column;
-    justify-content: center; /* 텍스트가 박스 내에서 중앙에 위치하도록 설정 */
+    justify-content: center;
 }
+
+
 
 .social-icons {
     display: flex;
@@ -641,17 +697,14 @@ blockquote footer {
     object-fit: contain;
 }
 
-
-
-
 /* Mobile spezifische Stile */
 @media (max-width: 768px) {
     #menuButton {
-        display: flex; /* Menüschaltfläche auf Mobilgeräten anzeigen */
+        display: flex; /* 메뉴 버튼을 모바일에서 보이게 */
     }
 
     #verticalMenu {
-        display: none; /* Menüpunkte auf Mobilgeräten ausblenden */
+        display: none; /* 메뉴 항목을 숨김 */
     }
 
     #menuToggle:checked + #menuButton + #verticalMenu {
@@ -669,9 +722,7 @@ blockquote footer {
         padding: 10px;
         text-align: center;
     }
-}
 
-@media (max-width: 768px) {
     .reviews {
         flex-direction: column;
         align-items: center;
@@ -681,4 +732,67 @@ blockquote footer {
         max-width: 100%;
         margin-bottom: 20px;
     }
+
+    .features {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .contact-box {
+        width: 95%;
+        padding: 10px;
+        height: auto; /* Height set to auto for better responsiveness */
+    }
+
+    .contact-box h1 {
+        font-size: 8vw;
+    }
+
+    .contact-item {
+        margin: 5px 0;
+    }
+
+    .contact-item h2 {
+        font-size: 6vw;
+    }
+
+    .contact-item p {
+        font-size: 5vw;
+    }
+
+    .social-icons img {
+        width: 30px;
+        height: 30px;
+    }
 }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .contact-box {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .contact-box h1 {
+        font-size: 6vw;
+    }
+
+    .contact-item h2 {
+        font-size: 4vw;
+    }
+
+    .contact-item p {
+        font-size: 3vw;
+    }
+
+    .social-icons img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
