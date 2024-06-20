@@ -15,7 +15,7 @@
                 <li class="nav-item"><span class="separator">|</span></li>
                 <li class="nav-item"><a href="agb.php" class="nav-link px-2 text-body-secondary">AGB</a></li>
             </ul>
-            <p class="text-center text-body-secondary"> Copyright© 2024 EcoBins LGmbH, Inc. Alle Rechte vorbehalten.</p>
+            <p class="text-center text-body-secondary"> © 2024 EcoBins LGmbH, Inc. Alle Rechte vorbehalten.</p>
         </div>
   </footer>
 </div>

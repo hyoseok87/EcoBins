@@ -1,10 +1,9 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 ?>
 <nav>
-    <div style="flex:1;">
-        <a href="index.php" style="text-decoration:none;color:inherit;font-weight:bold;"></a>
-    </div>
     <input id="menuToggle" type="checkbox" style="display:none;">
     <label id="menuButton" for="menuToggle" style="display:none; flex;">
         <div id="menuButtonIcon" style="width:24px;padding:8px;">
@@ -14,26 +13,27 @@ session_start();
         </div>
     </label>
     <ul id="verticalMenu" style="display: flex; list-style: none; margin: 0; padding: 0;">
-        <li class="navMenuLink"><a class="navMenuLinkContent" href="index.php" title="Home">Home</a></li>
-        <li class="navMenuLink"><a class="navMenuLinkContent" href="leistungen.php" title="Service">Service</a></li>
-        <li class="navMenuLink"><a class="navMenuLinkContent" href="merkmale.php" title="Merkmale">Merkmale</a></li>
-        <li class="navMenuLink"><a class="navMenuLinkContent" href="bewertung_von_kunden.php" title="Bewertung von Kunden">Bewertung von Kunden</a></li>
-        <li class="navMenuLink"><a class="navMenuLinkContent" href="mitarbeiter.php" title="Über uns">Über uns</a></li>
-        <li class="navMenuLink"><a class="navMenuLinkContent" href="kontakt.php" title="Kontakt">Kontakt</a></li>
-        <li class="navMenuLink"><a class="navMenuLinkContent" href="documentation.php" title="Dokumentation">Dokumentation</a></li>
+        <li class="navMenuLink"><a class="navMenuLinkContent <?php echo basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : ''; ?>" href="index.php" title="Home">Home</a></li>
+        <li class="navMenuLink"><a class="navMenuLinkContent <?php echo basename($_SERVER['PHP_SELF']) == 'service.php' ? 'active' : ''; ?>" href="service.php" title="Service">Service</a></li>
+        <li class="navMenuLink"><a class="navMenuLinkContent <?php echo basename($_SERVER['PHP_SELF']) == 'merkmale.php' ? 'active' : ''; ?>" href="merkmale.php" title="Merkmale">Merkmale</a></li>
         <?php if (isset($_SESSION['user_id'])): ?>
-            <li class="navMenuLink"><a class="navMenuLinkContent" href="logout.php" title="Abmelden" onclick="confirmLogout()">Abmelden</a></li>
-        <?php else: ?>
-            <li class="navMenuLink"><a class="navMenuLinkContent" href="login.php" title="Anmelden">Anmelden</a></li>
+            <li class="navMenuLink"><a class="navMenuLinkContent <?php echo basename($_SERVER['PHP_SELF']) == 'documentation.php' ? 'active' : ''; ?>" href="documentation.php" title="Dokumentation">Dokumentation</a></li>
         <?php endif; ?>
-        <li class="navMenuLink"><a class="navMenuLinkContent" href="register.php" title="Register">Registrieren</a></li>
+        <li class="navMenuLink"><a class="navMenuLinkContent <?php echo basename($_SERVER['PHP_SELF']) == 'bewertung_von_kunden.php' ? 'active' : ''; ?>" href="bewertung_von_kunden.php" title="Bewertung von Kunden">Bewertung von Kunden</a></li>
+        <li class="navMenuLink"><a class="navMenuLinkContent <?php echo basename($_SERVER['PHP_SELF']) == 'mitarbeiter.php' ? 'active' : ''; ?>" href="mitarbeiter.php" title="Über uns">Über uns</a></li>
+        <li class="navMenuLink"><a class="navMenuLinkContent <?php echo basename($_SERVER['PHP_SELF']) == 'kontakt.php' ? 'active' : ''; ?>" href="kontakt.php" title="Kontakt">Kontakt</a></li>
+       
+        <?php if (isset($_SESSION['user_id'])): ?>
+            <li class="navMenuLink"><a class="navMenuLinkContent" href="logout.php" title="Abmelden" onclick="return confirmLogout();">Abmelden</a></li>
+        <?php else: ?>
+            <li class="navMenuLink"><a class="navMenuLinkContent <?php echo basename($_SERVER['PHP_SELF']) == 'login.php' ? 'active' : ''; ?>" href="login.php" title="Anmelden">Anmelden</a></li>
+        <?php endif; ?>
+        <li class="navMenuLink"><a class="navMenuLinkContent <?php echo basename($_SERVER['PHP_SELF']) == 'register.php' ? 'active' : ''; ?>" href="register.php" title="Register">Registrieren</a></li>
     </ul>
 </nav>
 
 <script>
 function confirmLogout() {
-    if (confirm('Möchten Sie sich abmelden?')) {
-        window.location.href = 'logout.php';
-    }
+    return confirm('Möchten Sie sich abmelden?');
 }
 </script>
