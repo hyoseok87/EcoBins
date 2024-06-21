@@ -1,4 +1,10 @@
 /* Grundstil */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: #f8f9fa;
@@ -6,6 +12,8 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 /* Layout */
@@ -64,15 +72,15 @@ body {
 /* Navigationsleiste */
 nav {
     position: sticky;
-    top: 0px;
+    top: 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background-color: #fafafa;
     border-bottom: 1px solid rgba(0, 0, 0, 0.07);
     z-index: 1;
-    text-overflow: ellipsis;
     height: 50px;
+    padding: 0 20px;
     box-sizing: border-box;
 }
 
@@ -81,9 +89,9 @@ nav {
     display: none; /* Standardmäßig ausgeblendet */
 }
 
-/* Vertikales Menü */
 #verticalMenu {
     display: flex;
+    align-items: center; /* Vertikal zentrieren */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -91,7 +99,11 @@ nav {
 
 /* Navigationslinks */
 .navMenuLinkContent {
-    padding: 15px;
+    display: flex;
+    align-items: center; /* Vertikal zentrieren */
+    padding: 0 15px;
+    height: 50px; /* Höhe der Navigation anpassen */
+    line-height: 50px; /* Höhe der Navigation anpassen */
     text-decoration: none;
     color: #000;
 }
@@ -175,15 +187,15 @@ header, footer {
 
 .hochladen-button {
     width: 120px !important;
-    margin: 20px auto; 
-    display: block; 
-    padding: 10px; 
-    font-size: 16px; 
-    border-radius: 5px; 
-    background-color: #007bff; 
-    color: white; 
-    border: none; 
-    cursor: pointer; 
+    margin: 20px auto;
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 /* Formularstil */
@@ -200,12 +212,11 @@ header, footer {
     justify-content: center;
     align-items: center;
     width: 100%;
-    flex-grow: 1; /* 남은 공간을 채우도록 설정 */
-    padding-top: 20px; /* 상단 패딩 추가 */
-    
+    flex-grow: 1;
+    padding-top: 20px;
 }
 
-.login-box { 
+.login-box {
     background-color: #ffffff;
     padding: 40px;
     border-radius: 10px;
@@ -244,20 +255,20 @@ p {
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
-    margin-top: 40px; 
+    margin-top: 40px;
 }
 
 .documentation-box h2:first-of-type {
-    margin-top: 0; 
-    padding-top: 20px; 
+    margin-top: 0;
+    padding-top: 20px;
 }
 
 .documentation-box .alert {
-    margin-bottom: 40px; 
+    margin-bottom: 40px;
 }
 
 .documentation-box h2:nth-of-type(2) {
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 /* Eingabegruppen */
@@ -350,7 +361,7 @@ ul li input {
     padding: 20px;
     margin: auto;
     max-width: 1200px;
-    min-height: calc(80vh - 80px); 
+    min-height: calc(80vh - 80px);
 }
 
 .service-text {
@@ -359,10 +370,10 @@ ul li input {
 
 .service-text h1 {
     font-size: 80px;
-    font-weight: 900; /* 폰트 두께를 더 두껍게 설정 */
+    font-weight: 900;
     color: #2c3e50;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* 텍스트 그림자를 추가하여 더 두꺼운 효과 */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .service-text p {
@@ -379,7 +390,7 @@ ul li input {
 
 /* Merkmale Container */
 .features-container {
-    padding: 60px 20px; 
+    padding: 60px 20px;
     text-align: center;
 }
 
@@ -395,18 +406,18 @@ ul li input {
     justify-content: center;
     gap: 20px;
     padding-top: 40px;
-    flex-wrap: wrap; /* 모바일 화면에서 감싸도록 설정 */
+    flex-wrap: wrap;
 }
 
 .feature {
     background-color: #0c1b30;
     color: whitesmoke;
-    padding: 60px 20px; 
+    padding: 60px 20px;
     border-radius: 10px;
     max-width: 300px;
     text-align: left;
-    flex: 1 1 calc(33.333% - 40px); /* 요소가 감싸도록 설정 */
-    margin-bottom: 20px; /* 아래 여백 추가 */
+    flex: 1 1 calc(33.333% - 40px);
+    margin-bottom: 20px;
 }
 
 .feature-icon {
@@ -445,7 +456,7 @@ ul li input {
 .review-header {
     font-size: 3em;
     font-weight: 700;
-    color: black; 
+    color: black;
     margin-bottom: 40px;
 }
 
@@ -453,30 +464,30 @@ ul li input {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* 모바일 화면에서 감싸도록 설정 */
+    flex-wrap: wrap;
 }
 
 .review-box {
-    background-color: #2c3e50; 
-    color: whitesmoke; 
+    background-color: #2c3e50;
+    color: whitesmoke;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 300px;
     text-align: left;
-    flex: 1 1 calc(33.333% - 40px); /* 요소가 감싸도록 설정 */
-    margin-bottom: 20px; /* 아래 여백 추가 */
+    flex: 1 1 calc(33.333% - 40px);
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
-    height: 100%; 
-    min-height: 600px; 
-    position: relative; 
+    justify-content: space-between;
+    height: 100%;
+    min-height: 600px;
+    position: relative;
 }
 
 blockquote {
     margin: 0;
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 blockquote p {
@@ -489,13 +500,13 @@ blockquote footer {
     font-size: 1em;
     font-weight: 700;
     background-color: #00c4cc;
-    color: black; 
-    align-self: flex-end; 
-    margin-top: 20px; 
-    position: absolute; 
-    bottom: 20px; 
-    left: 20px; 
-    right: 20px; 
+    color: black;
+    align-self: flex-end;
+    margin-top: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
 }
 
 /* Mitarbeiter */
@@ -518,7 +529,7 @@ blockquote footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column; /* 추가: 세로 정렬 */
+    flex-direction: column;
 }
 
 .carousel-slide img {
@@ -549,7 +560,7 @@ blockquote footer {
 
 .carousel-nav {
     position: absolute;
-    bottom: 5px; /* 이미지 아래에 적절한 간격 설정 */
+    bottom: 5px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -571,7 +582,7 @@ blockquote footer {
     background-color: #000;
 }
 
-/* Modal 스타일 */
+/* Modal Stil */
 .modal {
     display: none;
     position: fixed;
@@ -610,16 +621,13 @@ blockquote footer {
     cursor: pointer;
 }
 
-
-
-/* Kontakt */ 
-
+/* Kontakt */
 .contact-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; /* Elemente oben ausrichten */
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0; /* Reduzierte Polsterung */
     flex-grow: 1;
 }
 
@@ -629,27 +637,26 @@ blockquote footer {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     width: 80%;
-    max-width: 1500px;
-    padding: 20px;
+    max-width: 1500px; /* Reduzierte maximale Breite */
+    padding: 1%; /* Reduzierte Polsterung */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    overflow: hidden; /* 추가: 콘텐츠가 벗어나지 않도록 */
+    justify-content: flex-start; /* Inhalt oben ausrichten */
 }
 
 .contact-box h1 {
     color: #00c8ff;
     background-color: #1c2c4c;
-    padding: 10px;
+    padding: 0; /* Polsterung entfernt */
     border-radius: 5px;
-    margin-bottom: 10px;
-    font-size: 4vw;
+    margin: 0 0 20px 0; /* Reduzierte untere Marge und obere Marge entfernt */
+    font-size: 2vw; /* Reduzierte Schriftgröße */
 }
 
 .contact-item {
     background-color: #ffffff;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 0.5%; /* Reduzierte Polsterung */
+    margin: 5px 0; /* Reduzierte Marge */
     border-radius: 5px;
     border: 2px solid #1c2c4c;
     flex-grow: 1;
@@ -661,138 +668,277 @@ blockquote footer {
 .contact-item h2 {
     color: #1c2c4c;
     margin: 0;
-    font-size: 2.5vw;
+    font-size: 1.2vw; /* Reduzierte Schriftgröße */
 }
 
 .contact-item p {
     color: #1c2c4c;
     margin: 5px 0 0;
-    font-size: 2vw;
+    font-size: 0.8vw; /* Reduzierte Schriftgröße */
 }
 
 .social-media {
-    background-color: #00c8ff; /* 수정: 배경색을 어두운 파랑으로 */
-    padding: 10px;
+    background-color: #00c8ff;
+    padding: 0.5%; /* Reduzierte Polsterung */
     border-radius: 5px;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-
-
 .social-icons {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 5px; /* Reduzierte obere Marge */
 }
 
 .social-icons a {
-    margin: 0 10px;
+    margin: 0 5px; /* Reduzierte Marge */
 }
 
 .social-icons img {
-    width: 50px;
-    height: 50px;
+    width: 50px; /* Reduzierte Größe */
+    height: 50px; /* Reduzierte Größe */
     object-fit: contain;
 }
 
-/* Mobile spezifische Stile */
-@media (max-width: 768px) {
+
+/* Mobile - Portrait */
+@media (max-width: 575px) {
     #menuButton {
-        display: flex; /* 메뉴 버튼을 모바일에서 보이게 */
+        display: flex; /* Show menu button on mobile */
+        cursor: pointer;
+        padding: 10px;
+        background-color: #fafafa;
+        border: 1px solid #ddd;
+        border-radius: 5px;
     }
 
     #verticalMenu {
-        display: none; /* 메뉴 항목을 숨김 */
-    }
-
-    #menuToggle:checked + #menuButton + #verticalMenu {
-        display: flex;
+        display: none;
         flex-direction: column;
-        width: 100%;
+        list-style: none;
+        padding: 0;
+        margin: 0;
         background-color: #fafafa;
         position: absolute;
         top: 50px;
         left: 0;
+        width: 100%;
         z-index: 2;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    #menuToggle:checked + #menuButton + #verticalMenu {
+        display: flex;
     }
 
     .navMenuLinkContent {
-        padding: 10px;
+        padding: 15px;
         text-align: center;
+        width: 100%;
+        display: block;
     }
 
-    .reviews {
-        flex-direction: column;
-        align-items: center;
+    .container,
+    .review-container,
+    .documentation-box,
+    .service-container,
+    .contact-container {
+        padding: 10px;
+    }
+
+    body > div:nth-child(8) > img {
+        width: 300px;
+        height: auto;
     }
     
-    .review {
+    img {
         max-width: 100%;
-        margin-bottom: 20px;
+        height: auto;
     }
-
-    .features {
+    
+    .features-container {
         flex-direction: column;
         align-items: center;
     }
 
     .feature {
-        max-width: 100%;
-        margin-bottom: 20px;
+        width: 100%; /* Make each feature box take full width */
+        margin: 10px 0; /* Adjust margin for spacing between boxes */
     }
 
-    .contact-box {
-        width: 95%;
-        padding: 10px;
-        height: auto; /* Height set to auto for better responsiveness */
+    h1.features-header, h1.review-header {
+        font-size: 40px; /* Adjust the font size for smaller screens */
+        margin: 20px 0px 20px; /* Adjust the margin for smaller screens */
     }
 
-    .contact-box h1 {
-        font-size: 8vw;
+    h1.contact-container {
+        font-size: 2em;
     }
 
-    .contact-item {
-        margin: 5px 0;
+    h2.carousel-caption {
+        font-size: 1.2em; /* Adjust font size for name */
     }
 
-    .contact-item h2 {
+    h1, h2, h3, h4, h5, h6 {
+        font-size: 1.5em;
+    }
+
+    p {
+        font-size: 1em;
+        line-height: 1.5;
+    }
+
+    .cta-button,
+    .btn,
+    .hochladen-button,
+    .download-button,
+    .delete-button,
+    .kontakt-button {
+        width: 70%;
+        font-size: 0.8em; /* Adjust font size for buttons */
+        padding: 8px; /* Adjust padding for buttons */
+    }
+
+    .service-container {
+        flex-direction: column;
+    }
+
+    .service-text h1 {
         font-size: 6vw;
     }
 
-    .contact-item p {
-        font-size: 5vw;
-    }
-
-    .social-icons img {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    .contact-box {
-        width: 90%;
-        padding: 15px;
-    }
-
-    .contact-box h1 {
-        font-size: 6vw;
-    }
-
-    .contact-item h2 {
+    .service-text p {
         font-size: 4vw;
     }
 
-    .contact-item p {
+    .documentation-box,
+    .login-box,
+    .contact-box {
+        padding: 20px;
+        padding-top: 40px; /* Increased padding-top to add height */
+        padding-bottom: 40px; /* Increased padding-bottom to add height */
+        width: 100%; /* Ensure full width on mobile */
+        max-width: 100%; /* Remove max-width restriction */
+        box-sizing: border-box; /* Include padding in the width */
+    }
+
+    .delete-button,
+    .download-button,
+    .hochladen-button {
         font-size: 3vw;
+        padding: 10px 20px;
+    }
+
+    .carousel-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align */
+        justify-content: center;
+        margin-top: 120px; /* Move elements down */
+    }
+
+    .carousel-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Center align slide content */
+        justify-content: center;
+        text-align: center;
+    }
+
+    .carousel-slide img {
+        width: 200px; /* Increase image size */
+        height: 200px; /* Increase image size */
+        margin-bottom: 10px; /* Space between image and text */
+    }
+
+    h2.carousel-caption {
+        font-size: 1.2em; /* Adjust font size for name */
+    }
+
+    .kontakt-button {
+        width: 70%;
+        font-size: 0.8em; /* Adjust font size for buttons */
+        padding: 8px; /* Adjust padding for buttons */
+    }
+
+    .carousel-nav {
+        margin-top: 10px; /* Adjust spacing between dot navigation and other elements */
+    }
+
+    footer {
+        padding: 10px; /* Reduced padding for footer */
+        font-size: 0.8em; /* Reduced font size */
+        line-height: 1.2; /* Adjust line height */
+        position: fixed; /* Ensure footer is at the bottom */
+        bottom: 0;
+        width: 100%;
+    }
+
+    /* Kontaktbox anpassen */
+    .contact-box {
+        padding: 20px;
+        padding-top: 30px; /* Oberes Padding reduzieren */
+        padding-bottom: 30px; /* Unteres Padding reduzieren */
+        width: 90%; /* Breite anpassen */
+        max-width: 100%; /* Maximalbreitenbeschränkung entfernen */
+        box-sizing: border-box; /* Padding in die Breite einbeziehen */
+    }
+
+    .contact-item {
+        background-color: #ffffff;
+        padding: 10px; /* Padding anpassen */
+        margin: 10px 0; /* Abstände anpassen */
+        border-radius: 5px;
+        border: 2px solid #1c2c4c;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .contact-container h1 {
+        color: #00c8ff;
+        margin: 0;
+        font-size: 1.5em; /* Schriftgröße erhöhen */
+        margin-bottom: 10px;
+    }
+
+    .contact-item h2 {
+        color: #1c2c4c;
+        margin: 0;
+        font-size: 1.2em; /* Schriftgröße erhöhen */
+    }
+
+    .contact-item p {
+        color: #1c2c4c;
+        margin: 5px 0 0;
+        font-size: 1.2em; /* Schriftgröße erhöhen */
+    }
+
+    .social-media {
+        background-color: #00c8ff;
+        padding: 10px; /* Padding anpassen */
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .social-icons {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .social-icons a {
+        margin: 0 10px; /* Abstände anpassen */
     }
 
     .social-icons img {
-        width: 40px;
-        height: 40px;
+        width: 50px; /* Größe anpassen */
+        height: 50px; /* Größe anpassen */
+        object-fit: contain;
     }
 }
-

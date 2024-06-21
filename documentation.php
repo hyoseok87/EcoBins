@@ -1,4 +1,3 @@
-<!-- documentation.php -->
 <?php
 include 'nav.php';
 include 'db.php';
@@ -29,6 +28,7 @@ if ($stmt = $link->prepare($sql)) {
     <meta charset="UTF-8">
     <title>Dokumentation</title>
     <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script>
         function toggleCheckboxes(source) {
@@ -38,7 +38,7 @@ if ($stmt = $link->prepare($sql)) {
             }
         }
 
-        // Funktion, um eine Nachricht nach 15 Sekunden verschwinden zu lassen
+        // Funktion, um eine Nachricht nach 10 Sekunden verschwinden zu lassen
         window.onload = function() {
             setTimeout(function() {
                 var messageElement = document.querySelector('.alert');
@@ -52,14 +52,12 @@ if ($stmt = $link->prepare($sql)) {
 <body>
     <div class="login-container">
         <div class="documentation-box">
-
             <h2>Dokumentation</h2>
             <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
                 <div class="alert alert-success"><?php echo htmlspecialchars($_GET['message']); ?></div>
             <?php elseif (isset($_GET['status']) && $_GET['status'] === 'error'): ?>
                 <div class="alert alert-danger"><?php echo htmlspecialchars($_GET['message']); ?></div>
             <?php endif; ?>
-
             <h2>Liste Ihrer Dokumente</h2>
             <form action="download.php" method="post">
                 <input type="checkbox" onclick="toggleCheckboxes(this)"> Alle auswählen/abwählen
@@ -80,7 +78,6 @@ if ($stmt = $link->prepare($sql)) {
                     <p>Keine Dokumente gefunden.</p>
                 <?php endif; ?>
             </form>
-
             <form action="upload.php" method="post" enctype="multipart/form-data" class="upload-form">
                 <div class="input-group">
                 <label for="file">Datei hochladen:</label>
